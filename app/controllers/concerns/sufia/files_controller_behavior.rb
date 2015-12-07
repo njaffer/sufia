@@ -96,5 +96,17 @@ module Sufia
         return {} if params[:file_set].blank?
         super
       end
+
+      def find_parent_by_id
+        if parent_id.empty?
+          nil
+        else
+          ActiveFedora::Base.find(parent_id)
+        end
+      end
+
+      def actor
+        @actor ||= ::Sufia::FileSetActor.new(@file_set, current_user)
+      end
   end
 end
