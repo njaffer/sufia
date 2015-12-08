@@ -37,7 +37,6 @@ module Sufia
 
     def file_set_abilities
       can :view_share_work, [::FileSet]
-      can :create, [::FileSet, ::Collection, ::GenericWork] if registered_user?
     end
 
     def editor_abilities
