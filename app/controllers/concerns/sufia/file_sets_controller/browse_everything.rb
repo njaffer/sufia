@@ -20,7 +20,8 @@ module Sufia::FileSetsController
           next if file_info.blank? || file_info["url"].blank?
           create_file_from_url(file_info["url"], file_info["file_name"], parent)
         end
-        redirect_to self.class.upload_complete_path(upload_set_id)
+#        redirect_to self.class.upload_complete_path(upload_set_id)
+         redirect_to [main_app, parent]
       end
 
       # Generic utility for creating FileSet from a URL
